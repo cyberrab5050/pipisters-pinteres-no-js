@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinteres для JSФобов</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}" />
+</head>
+
+<body >
+    
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-more"  viewBox="0 -960 960 960"><
+            <path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/>
+        </symbol>
+
+        <symbol id="icon-share" width="20" height="20" viewBox="0 0 24 24" 
+        fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+            <polyline points="16 6 12 2 8 6"></polyline>
+            <line x1="12" y1="2" x2="12" y2="15"></line>
+        </symbol>
+
+        <symbol id="icon-upload" viewBox="0 -960 960 960">
+            <path
+        d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z" />
+        </symbol>
+
+        <symbol id="icon-arrow-outward" viewBox="0 -960 960 960">
+            <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+        </symbol>
+
+    </svg>
+
+    <header class="header">
+        <a class="btn btn--icon btn--main" href="{{ url_for('index') }}" >
+            <div class="btn-content btn-content--normal">
+                <!-- https://www.svgrepo.com/svg/452086/pinterest -->
+                <img 
+                    src="{{ url_for('static', filename='icon/pinterest-svgrepo-com.svg') }}" 
+                    alt="Pinteres для JSФобов" 
+                    width="32" height="32"
+                    srcset=""
+                >
+            </div>
+        </a>
+
+        <form class="add-url" method="POST" action="{{ url_for('upload') }}">
+            <input class="add-url__input input" type="url" name="img_url" placeholder="Введите URL изображения для загрузки" required/>
+            <button class="btn btn--icon">
+                <div class="btn-content btn-content--mini">
+                    <svg class="icon" width="24" height="24">
+                        <use xlink:href="#icon-upload"></use>
+                    </svg>
+                </div>
+            </button>
+        </form>
+    </header>
+
+
+    <div class="app">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

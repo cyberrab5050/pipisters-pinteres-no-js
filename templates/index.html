@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% from 'components/card.html' import card with
+context %} {% block content %}
+
+<div class="pinterest-layout">
+    <!-- 200 ширина блока -->
+    <!-- Значит относительная высота -->
+    <!--  -->
+    {% set width = 236 %} 
+    {% set gap_height = width | calculate_gap_height(1920, 1080) %}
+
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ gap_height }};">
+        {{ card(1, 'static/img/lain/wallhaven-1jl6gw.png', 'Lain') }}
+    </div>
+
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ gap_height }};">
+        {{ card(1, 'static/img/lain/wallhaven-1jl6gw.png', 'Lain') }}
+    </div>
+
+    {% set gap_height_2 = width | calculate_gap_height(1440, 2000) %}
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ gap_height_2 }};">
+        {{ card(1, 'static/img/lain/wallhaven-5gvpg7_1440x2000.png', 'Lain') }}
+    </div>
+
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ gap_height }};">
+        {{ card(1, 'static/img/lain/wallhaven-1jl6gw.png', 'Lain') }}
+    </div>
+
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ gap_height }};">
+        {{ card(1, 'static/img/lain/wallhaven-1jl6gw.png', 'Lain') }}
+    </div>
+
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ 400 }};">
+        <div class="card card--style-1"></div>
+    </div>
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ 400 }};">
+        <div class="card card--style-2"></div>
+    </div>
+    <div class="pinterest-layout__block" style="grid-row-end: span {{ 400 }};">
+        <div class="card card--style-3"></div>
+    </div>
+
+    {% set gap_height = width | calculate_gap_height(610, 3538) %}
+    <div id="section1" class="pinterest-layout__block" style="grid-row-end: span {{ gap_height }};">
+        {{ card(1,
+        'https://i.pinimg.com/originals/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg',
+        'Lain') }}
+    </div>
+</div>
+
+<img alt="Пин содержит это изображение: " class="hCL kVc L4E MIw" fetchpriority="auto" loading="auto"
+    src="https://i.pinimg.com/236x/01/00/f0/0100f0464e947a3c54219f11c12ecfc2.jpg" srcset="
+    https://i.pinimg.com/236x/01/00/f0/0100f0464e947a3c54219f11c12ecfc2.jpg      1x,
+    https://i.pinimg.com/474x/01/00/f0/0100f0464e947a3c54219f11c12ecfc2.jpg      2x,
+    https://i.pinimg.com/736x/01/00/f0/0100f0464e947a3c54219f11c12ecfc2.jpg      3x,
+    https://i.pinimg.com/originals/01/00/f0/0100f0464e947a3c54219f11c12ecfc2.jpg 4x
+  " />
+
+<img alt="Пин содержит это изображение: " class="hCL kVc L4E MIw" fetchpriority="auto" loading="auto"
+    src="https://i.pinimg.com/236x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg" srcset="
+    https://i.pinimg.com/236x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg      1x,
+    https://i.pinimg.com/474x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg      2x,
+    https://i.pinimg.com/736x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg      3x,
+    https://i.pinimg.com/originals/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg 4x
+  " />
+
+<img alt="" class="hCL kVc L4E MIw" fetchpriority="auto" loading="auto"
+    src="https://i.pinimg.com/236x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg" srcset="
+    https://i.pinimg.com/236x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg      1x,
+    https://i.pinimg.com/474x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg      2x,
+    https://i.pinimg.com/736x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg      3x,
+    https://i.pinimg.com/originals/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg 4x
+  " />
+
+<!-- <img alt="" class="hCL kVc L4E MIw" fetchpriority="auto" loading="auto"
+    src="https://i.pinimg.com/564x/39/8e/4d/398e4de5e3bce9d7d9d5b9983c4d3edf.jpg" /> -->
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+{% from 'components/card.html' import card with context %} 
+
+
+{% block content %}
+
+
+
+{% set gap_pin_height = 736 | calculate_gap_pin_height(image.widthOrig, image.heightOrig) %}
+<div class="pin">
+    <div class="pin__box">
+        <picture class="pin__picture">
+            <img 
+                class="pin__img" 
+                src="/pinimg/736x/{{ image.id|string }}.jpg" 
+                alt="Изображение на пинтерест" 
+                loading="lazy"
+                width="{{ 736 }}"
+                height="{{ gap_pin_height }}"
+            />
+        </picture>
+    
+        <!-- <div class="pin__utils">
+            <div class="btn">
+                <div class="btn btn--save">
+                    <div class="btn-content btn-content--standard">
+                        <span>Сохранить</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="btn">
+                <div class="btn btn--save">
+                    <div class="btn-content btn-content--standard">
+                        <span>Сохранить</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div> -->
+    </div>
+    
+</div>
+
+<div class="rec-block ">
+    <h2 class="rec-block__title">Другие интересные пины</h2>
+    <div class="pinterest-layout {% if is_mobile %}pinterest-layout--mobile{% endif %}">
+        {% for image in images %}
+            {% set gap_height = width | calculate_gap_height(image.widthOrig, image.heightOrig) %}
+            <div class="pinterest-layout__block" style="grid-row-end: span {{ gap_height }};">
+                {{ card(image.id, '/pinimg/236x/' + image.id|string + '.jpg', 'Image to Pipisters', image.urlOriginal) }}
+            </div>
+        {% endfor %}
+    
+        <form action="/back" method="get">
+            <button type="submit">Назад</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

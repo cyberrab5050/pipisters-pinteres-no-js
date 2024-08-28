@@ -1,0 +1,55 @@
+{% macro card(id, imgURL, alt, imgOrigURL) %}
+<div class="card">
+    <picture class="card__picture">
+        <img class="card__img" src="{{ imgURL }}" alt="{{ alt }}" loading="lazy" />
+    </picture>
+
+    <div class="card__filter"></div>
+    <a href="{{ url_for('pin', image_id=id) }}" class="card__link"></a>
+
+    <a class="btn btn--save card__btn-save" download href="{{ url_for('get_image', size='736x', image_id=id ) }}">
+        <div class="btn-content btn-content--standard">
+            <span>Сохранить</span>
+        </div>
+    </a>
+
+    <div class="card__footer">
+        <a class="btn btn--original-img" href="{{ imgOrigURL }}" target="_blank">
+            <div class="btn-content btn-content--original-img">
+                <svg class="icon icon--standard-size btn-content__icon" width="24" height="24">
+                    <use xlink:href="#icon-arrow-outward"></use>
+                </svg>
+                <span class="text-hidden">{{ imgOrigURL }}</span>
+            </div>
+        </a>
+
+        <div class="">
+            <label class="popover">
+                <div class="btn btn--icon">
+                    <div class="btn-content btn-content--mini">
+                        <svg class="icon" width="20" height="20">
+                            <use xlink:href="#icon-share"></use>
+                        </svg>
+                    </div>
+                </div>
+
+                <input type="checkbox" class="popover__checkbox" />
+                <div class="popover__content"></div>
+            </label>
+
+            <label class="popover">
+                <div class="btn btn--icon">
+                    <div class="btn-content btn-content--mini">
+                        <svg class="icon" width="24" height="24">
+                            <use xlink:href="#icon-more"></use>
+                        </svg>
+                    </div>
+                </div>
+
+                <input type="checkbox" class="popover__checkbox" />
+                <div class="popover__content"></div>
+            </label>
+        </div>
+    </div>
+</div>
+{% endmacro %}
