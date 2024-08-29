@@ -89,6 +89,7 @@ def upload():
         db.session.commit()
         return redirect(url_for('index'))
     except Exception as e:
+        print('Error uploading image:')
         print(e)
         return redirect(url_for('index'))
 
